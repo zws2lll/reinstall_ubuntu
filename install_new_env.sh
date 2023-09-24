@@ -29,6 +29,11 @@ sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce
 sudo systemctl status docker
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
+sudo systemctl restart docker
+sudo chmod a+rw /var/run/docker.sock
+
 
 # NVIDIA docker
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey |   sudo apt-key add -
@@ -51,4 +56,6 @@ sudo add-apt-repository ppa:lazygit-team/release
 sudo apt-get update
 sudo apt-get install lazygit
 
+# lazydocke
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
